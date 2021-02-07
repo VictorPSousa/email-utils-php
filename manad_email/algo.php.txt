@@ -1,0 +1,14 @@
+# Include the Autoloader (see "Libraries" for install instructions)
+require 'vendor/autoload.php';
+use Mailgun\Mailgun;
+
+# Instantiate the client.
+$mgClient = new Mailgun('7b9584ff0adab93b89316dfcd4c693c8-1df6ec32-e19be223');
+$domain = "sandbox0dfa3b92797c4836a8d757ae0891f4f0.mailgun.org";
+
+# Make the call to the client.
+$result = $mgClient->sendMessage("$domain",
+	array('from'    => 'Mailgun Sandbox <postmaster@sandbox0dfa3b92797c4836a8d757ae0891f4f0.mailgun.org>',
+		  'to'      => 'Victor Sousa <victor.sousa@aluno.ifsp.edu.br>',
+		  'subject' => 'Hello Victor Sousa',
+		  'text'    => 'Congratulations Victor Sousa, you just sent an email with Mailgun!  You are truly awesome! '));
